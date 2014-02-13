@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<platformdeployment>
+	<sharefolderconfig>
+		<sharefolder svrnames="gvw1958" path="F:\Apps\wsR\SSIS_LOG" sharename="SSIS_LOG">
+			<addaccount name="americas\SvcTIDALDVam" permission="change"/>
+			<addaccount name="americas\SvcTIDALam" permission="change"/>
+		</sharefolder>
+		<sharefolder svrnames="gvw1958" path="F:\Apps\wsR\SSIS" sharename="SSIS">
+			<addaccount name="americas\SvcTIDALDVam" permission="change"/>
+			<addaccount name="americas\SvcTIDALam" permission="change"/>
+		</sharefolder>
+		<sharefolder svrnames="gvw1958" path="F:\Apps\wsR\iHub" sharename="iHub">
+			<addaccount name="americas\SvcTIDALDVam" permission="change"/>
+			<addaccount name="americas\SvcTIDALam" permission="change"/>
+		</sharefolder>
+		<sharefolder svrnames="gvw1958" path="F:\Apps\wsR\Excel" sharename="Excel">
+			<addaccount name="americas\SvcTIDALDVam" permission="change"/>
+			<addaccount name="americas\SvcTIDALam" permission="change"/>
+		</sharefolder>
+		<sharefolder svrnames="gvw1958" path="F:\Apps\wsR\batch job" sharename="batch job">
+			<addaccount name="americas\SvcTIDALDVam" permission="change"/>
+			<addaccount name="americas\SvcTIDALam" permission="change"/>
+		</sharefolder>
+
+	</sharefolderconfig>
+
+	<localfolderconfig>
+		<localfolder svrnames="gvw1958" path="F:\Apps\wsR\SSIS" >
+			<addaccount name="americas\SvcTIDALDVam" permission="fullcontrol"/>
+			<addaccount name="americas\SvcTIDALam" permission="fullcontrol"/>
+		</localfolder>
+
+		<localfolder svrnames="gvw1958" path="F:\Apps\wsR\SSIS_LOG" >
+			<addaccount name="americas\SvcTIDALDVam" permission="fullcontrol"/>
+			<addaccount name="americas\SvcTIDALam" permission="fullcontrol"/>
+		</localfolder>
+
+		<localfolder svrnames="gvw1958" path="F:\Apps\wsR\iHub" >
+			<addaccount name="americas\SvcTIDALDVam" permission="fullcontrol"/>
+			<addaccount name="americas\SvcTIDALam" permission="fullcontrol"/>
+		</localfolder>
+
+		<localfolder svrnames="gvw1958" path="F:\Apps\wsR\Excel" >
+			<addaccount name="americas\SvcTIDALDVam" permission="fullcontrol"/>
+			<addaccount name="americas\SvcTIDALam" permission="fullcontrol"/>
+		</localfolder>
+
+		<localfolder svrnames="gvw1958" path="F:\Apps\wsR\batch job" >
+			<addaccount name="americas\SvcTIDALDVam" permission="fullcontrol"/>
+			<addaccount name="americas\SvcTIDALam" permission="fullcontrol"/>
+		</localfolder>
+
+		<localfolder svrnames="gvw1958" path="F:\Apps\wsR\SSIS" >
+			<addaccount name="americas\SvcTIDALDVam" permission="fullcontrol"/>
+			<addaccount name="americas\SvcTIDALam" permission="fullcontrol"/>
+		</localfolder>
+		<localfolder svrnames="gvw1958" path="F:\Apps\wsX" >
+			<addaccount name="americas\SvcTIDALDVam" permission="fullcontrol"/>
+			<addaccount name="americas\SvcTIDALam" permission="fullcontrol"/>
+		</localfolder>
+	</localfolderconfig>
+	<windowsservice>
+		<server name="Serve1,server2">
+			<service name="iisadmin">
+				<actions>
+					<resetstatus status="start"/>
+					<resetmode mode="manual"/>
+					<resetlogon account="asiapacific\pengzhe" password="ryan@2526178"/>
+				</actions>
+			</service>
+		</server>
+	</windowsservice>
+	<copyfilemission>
+		<copygroup groupname="name1">
+			<copytask id="c001" enable="1">
+				<sourcesvr svr="\\g2w2026g"></sourcesvr>
+				<destinationsvr svr="\\g4w3145g,\\g4w3143g"></destinationsvr>
+				<directorymap>
+					<copyfile from="F:\Apps\wsR" to="F:\Apps\" ></copyfile>
+				</directorymap>
+			</copytask>
+			
+			<copytask id="c003" enable="1">
+				<sourcesvr svr="\\g2w2026g"></sourcesvr>
+				<destinationsvr svr="\\g4w3145g,\\g4w3143g"></destinationsvr>
+				<directorymap>
+					<copyfile from="F:\Apps\wsR" to="F:\Apps\" ></copyfile>
+				</directorymap>
+			</copytask>
+			
+		</copygroup>
+		<copygroup groupname="name2">
+			<copytask id="c001" enable="1">
+				<sourcesvr svr="\\g2w2026g"></sourcesvr>
+				<destinationsvr svr="\\g4w3145g,\\g4w3143g"></destinationsvr>
+				<directorymap>
+					<copyfile from="F:\Apps\wsR" to="F:\Apps\" ></copyfile>
+				</directorymap>
+			</copytask>
+		</copygroup>
+	</copyfilemission>
+	<remoteprocess>
+		<remotetask>
+			<servername svrnames="zpeng6"/>
+			<executepath execpath="C:\mY projects\wsR\Deployment\PowerShell\powershell_dev\ps_CertificateRenew\start.bat"/>
+		</remotetask>
+	</remoteprocess>
+</platformdeployment>
